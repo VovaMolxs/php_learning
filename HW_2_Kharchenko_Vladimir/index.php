@@ -9,111 +9,149 @@ function zad_1($a) {
 
 function zad_2($a)
 {
-    $a = $a . "";
-    $a[1] = '0';
-    $a = (int)$a;
-    echo $a;
+    if (is_int($a)) {
+        $a = $a . "";
+        $a[1] = '0';
+        $a = (int)$a;
+        echo $a;
+    } else {
+        echo "Передано не число!";
+    }
 }
 
 function zad_3($a, $b)
 {
-    if ($a <= 1 and $b >= 3) {
-        echo $a + $b;
+    if (is_int($a) && is_int($b)) {
+        if ($a <= 1 and $b >= 3) {
+            echo $a + $b;
+        } else {
+            echo $a - $b;
+        }
     } else {
-        echo $a - $b;
+        echo "Переданы не числа!";
     }
 }
 
 function zad_4($str)
-{
+{ if (is_string($str)) {
     if ($str[0] == 'a') {
         echo "<p class='badge bg-success'>Да</p>";
     } else {
         echo "<p class='badge bg-danger'>Нет</p>";
     }
+} else {
+    echo "передана не строка!";
+}
 }
 
 function zad_5($str) {
-    $sumleft = $str[0] + $str[1] + $str[2];
-    $sumright = $str[3] + $str[4] + $str[5];
-
-    if ($sumleft == $sumright) {
-        echo "<p class='badge bg-success'>Да</p>";
+    if (is_string($str)) {
+        $sumleft = $str[0] + $str[1] + $str[2];
+        $sumright = $str[3] + $str[4] + $str[5];
+        if ($sumleft == $sumright) {
+            echo "<p class='badge bg-success'>Да</p>";
+        } else {
+            echo "<p class='badge bg-danger'>Нет</p>";
+        }
     } else {
-        echo "<p class='badge bg-danger'>Нет</p>";
+        echo "Передана не строка!";
     }
 }
 
 
 function zad_6($degree)
 {
-    $i = 0;
-    $time = 1;
-    while ($i <= 360) {
-        if ($degree >= $i and $degree <= ($i + 30)) {
-            echo "<p class='badge bg-success'>" . $time . "</p>";
-            break;
-        } else {
-            $time++;
-            $i += 30;
+    if (is_int($degree)) {
+        $i = 0;
+        $time = 1;
+        while ($i <= 360) {
+            if ($degree >= $i and $degree <= ($i + 30)) {
+                echo "<p class='badge bg-success'>" . $time . "</p>";
+                break;
+            } else {
+                $time++;
+                $i += 30;
+            }
         }
+    } else {
+        echo "Вы передали не число!";
     }
 }
 
 function zad_7($a, $b)
 {
-    $sum = 0;
-    foreach (range($a, $b) as $value) {
-        if ($value % 5 == 0) {
-            $sum += $value;
+    if (is_int($a) && is_int($b)) {
+        $sum = 0;
+        foreach (range($a, $b) as $value) {
+            if ($value % 5 == 0) {
+                $sum += $value;
+            }
         }
+        echo "<p class='badge bg-success'>" . $sum . "</p>";
+    } else {
+        echo "Вы передали не числа!";
     }
-    echo "<p class='badge bg-success'>" . $sum . "</p>";
 }
 
 
 function zad_8($num)
 {
-    $num = $num . '';
-    for ($i = 0; $i < strlen($num); $i++) {
-        if ($num[$i] % 2 == 0) {
-            $num[$i] = 0;
+    if (is_int($num)) {
+        $num = $num . '';
+        for ($i = 0; $i < strlen($num); $i++) {
+            if ($num[$i] % 2 == 0) {
+                $num[$i] = 0;
+            }
         }
+        $num = (int)$num;
+        echo "<p class='badge bg-success'>" . $num . "</p>";
+    } else {
+        echo "Вы передали не число!";
     }
-    $num = (int)$num;
-    echo "<p class='badge bg-success'>" . $num . "</p>";
 }
 
 
 function zad_9_while($number)
 {
-    $counter = 0;
-    while ($number >= 50) {
-        $number /= 2;
-        $counter++;
+    if (is_int($number)) {
+        $counter = 0;
+        while ($number >= 50) {
+            $number /= 2;
+            $counter++;
+        }
+        echo $counter . " - проходов";
+    } else {
+        echo "Передано не число!";
     }
-    echo $counter . " - проходов";
 }
 
 function zad_9_for($number)
 {
-    for ($i = 0; $i < $number; $i++) {
-        if ($number < 50) {
-            echo $i . " - проходов";
-            break;
-        } else {
-            $number /= 2;
+    if (is_int($number)) {
+        for ($i = 0; $i < $number; $i++) {
+            if ($number < 50) {
+                echo $i . " - проходов";
+                break;
+            } else {
+                $number /= 2;
+            }
         }
+    } else {
+        echo "Передано не число!";
     }
 }
 
 function kvadrat($a)
 {
-    for ($i = 0; $i < $a; $i++) {
-        for ($j = 0; $j < $a; $j++) {
-            echo " *";
+    if (is_int($a)) {
+        for ($i = 0; $i < $a; $i++) {
+            for ($j = 0; $j < $a; $j++) {
+                echo " *";
+            }
+            echo "<br>";
         }
-        echo "<br>";
+    } else {
+        echo "Передано не число!";
     }
 }
 
@@ -194,11 +232,16 @@ function kvadrat($a)
         </div>
         <div class="col-4">
             <code>
-                function zad_2($a) {<br>
-                $a = $a."";<br>
+                function zad_2($a)<br>
+                {<br>
+                if (is_int($a)) {<br>
+                $a = $a . "";<br>
                 $a[1] = '0';<br>
-                $a = (int) $a;<br>
+                $a = (int)$a;<br>
                 echo $a;<br>
+                } else {<br>
+                echo "Передано не число!";<br>
+                }<br>
                 }
             </code>
         </div>
@@ -227,11 +270,16 @@ function kvadrat($a)
             </div>
             <div class="col-4">
                 <code>
-                    function zad_3($a, $b) {<br>
-                    if ($a3 <= 1 and $b3 >= 3) {<br>
-                    echo $a3 + $b3;<br>
+                    function zad_3($a, $b)<br>
+                    {<br>
+                    if (is_int($a) && is_int($b)) {<br>
+                    if ($a <= 1 and $b >= 3) {<br>
+                    echo $a + $b;<br>
                     } else {<br>
-                    echo $a3 - $b3;<br>
+                    echo $a - $b;<br>
+                    }<br>
+                    } else {<br>
+                    echo "Переданы не числа!";<br>
                     }<br>
                     }
                 </code>
@@ -262,11 +310,15 @@ function kvadrat($a)
         </div>
         <div class="col-4">
             <code>
-                function zad_4($str) {<br>
+                function zad_4($str)<br>
+                { if (is_string($str)) {<br>
                 if ($str[0] == 'a') {<br>
                 echo "<p class='badge bg-success'>Да</p>";<br>
                 } else {<br>
                 echo "<p class='badge bg-danger'>Нет</p>";<br>
+                }<br>
+                } else {<br>
+                echo "передана не строка!";<br>
                 }<br>
                 }
             </code>
@@ -293,13 +345,16 @@ function kvadrat($a)
         <div class="col-4">
             <code>
                 function zad_5($str) {<br>
+                if (is_string($str)) {<br>
                 $sumleft = $str[0] + $str[1] + $str[2];<br>
                 $sumright = $str[3] + $str[4] + $str[5];<br>
-
                 if ($sumleft == $sumright) {<br>
                 echo "<p class='badge bg-success'>Да</p>";<br>
                 } else {<br>
                 echo "<p class='badge bg-danger'>Нет</p>";<br>
+                }<br>
+                } else {<br>
+                echo "Передана не строка!";<br>
                 }<br>
                 }
             </code>
@@ -325,7 +380,9 @@ function kvadrat($a)
         </div>
         <div class="col-4">
             <code>
-                function mytime($degree) {<br>
+                function zad_6($degree)<br>
+                {<br>
+                if (is_int($degree)) {<br>
                 $i = 0;<br>
                 $time = 1;<br>
                 while ($i <= 360) {<br>
@@ -337,7 +394,10 @@ function kvadrat($a)
                 $i += 30;<br>
                 }<br>
                 }<br>
+                } else {<br>
+                echo "Вы передали не число!";<br>
                 }<br>
+                }
             </code>
         </div>
     </div>
@@ -358,6 +418,7 @@ function kvadrat($a)
             <code>
                 function zad_7($a, $b)<br>
                 {<br>
+                if (is_int($a) && is_int($b)) {<br>
                 $sum = 0;<br>
                 foreach (range($a, $b) as $value) {<br>
                 if ($value % 5 == 0) {<br>
@@ -365,6 +426,9 @@ function kvadrat($a)
                 }<br>
                 }<br>
                 echo "<p class='badge bg-success'>" . $sum . "</p>";<br>
+                } else {<br>
+                echo "Вы передали не числа!";<br>
+                }<br>
                 }
             </code>
         </div>
@@ -379,21 +443,26 @@ function kvadrat($a)
         <div class="col-8">
             <div class="row">
                 <div class="col-10"><p class="text-end">Зануление чисел на четных позициях числа 123456789</p></div>
-                <div class="col-2"><?=zad_8(12345678); ?></div>
+                <div class="col-2"><?=zad_8(123456789); ?></div>
             </div>
         </div>
         <div class="col-4">
             <code>
-                function zad_8($num) {<br>
-                $num = $num.'';<br>
+                function zad_8($num)<br>
+                {<br>
+                if (is_int($num)) {<br>
+                $num = $num . '';<br>
                 for ($i = 0; $i < strlen($num); $i++) {<br>
                 if ($num[$i] % 2 == 0) {<br>
                 $num[$i] = 0;<br>
                 }<br>
                 }<br>
-                $num = (int) $num;<br>
+                $num = (int)$num;<br>
                 echo "<p class='badge bg-success'>" . $num . "</p>";<br>
-                    }
+                } else {<br>
+                echo "Вы передали не число!";<br>
+                }<br>
+                }
             </code>
         </div>
     </div>
@@ -414,13 +483,18 @@ function kvadrat($a)
         </div>
         <div class="col-4">
             <code>
-                function zad_9_while($number) {<br>
+                function zad_9_while($number)<br>
+                {<br>
+                if (is_int($number)) {<br>
                 $counter = 0;<br>
                 while ($number >= 50) {<br>
                 $number /= 2;<br>
                 $counter++;<br>
                 }<br>
                 echo $counter . " - проходов";<br>
+                } else {<br>
+                echo "Передано не число!";<br>
+                }<br>
                 }
             </code>
         </div>
@@ -435,7 +509,9 @@ function kvadrat($a)
         </div>
         <div class="col-4">
             <code>
-                function zad_9_for($number) {<br>
+                function zad_9_for($number)<br>
+                {<br>
+                if (is_int($number)) {<br>
                 for ($i = 0; $i < $number; $i++) {<br>
                 if ($number < 50) {<br>
                 echo $i . " - проходов";<br>
@@ -443,6 +519,9 @@ function kvadrat($a)
                 } else {<br>
                 $number /= 2;<br>
                 }<br>
+                }<br>
+                } else {<br>
+                echo "Передано не число!";<br>
                 }<br>
                 }
             </code>
@@ -458,12 +537,17 @@ function kvadrat($a)
         </div>
         <div class="col-4">
             <code>
-                function kvadrat($a) {<br>
+                function kvadrat($a)<br>
+                {<br>
+                if (is_int($a)) {<br>
                 for ($i = 0; $i < $a; $i++) {<br>
                 for ($j = 0; $j < $a; $j++) {<br>
                 echo " *";<br>
                 }<br>
                 echo "&lt;br&gt;";
+                }<br>
+                } else {<br>
+                echo "Передано не число!";<br>
                 }<br>
                 }
             </code>
