@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/func/pagesData.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/data/pagesData.php';
 //проверям запрос, был ли он сделан и передан ли id, если не айди или пустой запрос то редирект!
 
     if (empty($_GET) || !$_GET['id']) {

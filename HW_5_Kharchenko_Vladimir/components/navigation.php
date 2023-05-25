@@ -21,7 +21,7 @@
         <div class="navigation-holder" id="navigation">
             <ul class="navigation-list">
                 <?php
-                require_once $_SERVER['DOCUMENT_ROOT'] . '/func/pagesData.php';
+                require_once $_SERVER['DOCUMENT_ROOT'] . '/data/pagesData.php';
                 foreach ($pagesData as $key => $value) {
                     echo "<li class='navigation-list__list-item'><a href=\page.php?id=${key}>${key}</a></li>";
                 }?>
