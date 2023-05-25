@@ -1,4 +1,6 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/navigation.php'; ?>
+<?php
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/components/navigation.php'; ?>
 
 <!-- Promo block_1 -->
 <div class="container-fluid">
