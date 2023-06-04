@@ -2,23 +2,23 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data/pagesData.php';
 //проверям запрос, был ли он сделан и передан ли id, если не айди или пустой запрос то редирект!
 
-    if (empty($_GET) || !$_GET['id']) {
-        header("Location: http://${_SERVER['SERVER_NAME']}/components/404.php");
+    if (!empty($_GET) || !$_GET['id']) {
+        header("Location: /components/404.php");
         exit;
     }
 
     if (!array_key_exists($_GET['id'], $pagesData)) {
-        header("Location: http://${_SERVER['SERVER_NAME']}/components/404.php");
+        header("Location: /components/404.php");
         exit;
     } else if ($_GET['id'] == 'home') {
-        header("Location: http://${_SERVER['SERVER_NAME']}/index.php");
+        header("Location: /index.php");
         exit;
     }
 
     foreach ($pagesData as $key => $value) {
         if ($key == $_GET['id']) {
             if (!is_file($_SERVER['DOCUMENT_ROOT'] . '/components/' . $value)) {
-                header("Location: http://${_SERVER['SERVER_NAME']}/components/404.php");
+                header("Location: /components/404.php");
                 exit;
             }
             $link = $value;
@@ -35,8 +35,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/components/' . $link;
 
 //формируем футер страницы
 require_once $_SERVER['DOCUMENT_ROOT'] . '/components/footer.php'
-
-
 
 
 ?>

@@ -6,7 +6,7 @@ function checkForm() {
         return false;
     }
 
-    if (empty($_POST['userName']) || empty($_POST['email']) || empty($_POST['numberPhone']) || empty($_POST['message'])) {
+    if (!empty($_POST['userName']) || empty($_POST['email']) || empty($_POST['numberPhone']) || empty($_POST['message'])) {
         $message = "Заполните все поля перед отправкой формы!";
         return false;
     }
