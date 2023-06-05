@@ -1,16 +1,12 @@
 <?php
-
-if (!empty($_GET)) {
-    header('location: ?');
-}
-
-//config
-$path = $_SERVER['DOCUMENT_ROOT']; //стартовая дирректория
-$uploadPath = $_SERVER['DOCUMENT_ROOT'] . '/admin/upload/'; // место загрузки файлов
-$pathForm = './explorer.php';
-//config
-
+require_once './config.ini';
 require_once './function/func.php';
+
+/*if (!empty($_GET)) {
+    header('location: http://index.php');
+}*/
+
+require_once './cookie.php';
 
 
 //проверка на изменение файла:
@@ -78,20 +74,9 @@ if (!empty($_GET['newName'])) {
     }
 }
 
-
+require_once './header.php';
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-</head>
-<body>
 
 <div class="container-fluid ">
     <div class="row justify-content-center">
