@@ -6,17 +6,30 @@ require_once './function/func.php';
 if (!empty($_COOKIE['authorization'])) {
     echo "
         <div class='alert alert-success' role='alert'>
-          Поздравляю ${_COOKIE['authorization']} c успешной авторизацией!
           <a href='./explorer.php'>Перейти в панель вдминистрирования</a>
+          <a href='logout.php'>Выйти из админки</a>
         </div>
         
     ";
 }
 
 if (!empty($_POST['enter'])) {
-    if (true == ($resultCheckAuth = checkAuth($_POST['login'], $_POST['password'])) ) {
+    if (true !== ($resultCheckAuth = checkAuth($_POST['login'], $_POST['password'])) ) {
+        echo "
+        <div class='alert alert-danger' role='alert'>
+           ${resultCheckAuth}
+        </div>
+    ";
+    } else {
         $_SESSION['login'] = $_POST['login'];
         setcookie('authorization', $_POST['login'], time()+1800);
+        echo "
+        <div class='alert alert-success' role='alert'>
+           Вы успешно авторизировались под ником ${_POST['login']} верно!
+           <a href='./explorer.php'>Перейти в панель вдминистрирования</a>
+        </div>
+        
+    ";
     }
 }
 

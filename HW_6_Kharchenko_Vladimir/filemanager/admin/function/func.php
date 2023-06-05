@@ -96,13 +96,8 @@ function checkAuth($loginForm, $passwordForm) {
     global $login;
     global $password;
 
-    $loginCheck = password_hash($login, PASSWORD_DEFAULT);
-    $passwordCheck = password_hash($password, PASSWORD_DEFAULT);
 
-    $loginForm = password_hash(trim(htmlspecialchars($loginForm)), PASSWORD_DEFAULT);
-    $passwordForm = password_hash(trim(htmlspecialchars($passwordForm)), PASSWORD_DEFAULT);
-
-    if ($loginCheck == $loginForm && $passwordCheck == $passwordForm) return true;
+    if (password_verify($loginForm, $login) && password_verify($passwordForm, $password)) return true;
 
     return 'Неверный логин или пароль!';
 
