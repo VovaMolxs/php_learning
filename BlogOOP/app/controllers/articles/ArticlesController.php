@@ -11,6 +11,10 @@ class ArticlesController
     }
 
     public function create() {
+        $category = new Category();
+        $category = $category->readAll();
+        $authors = new Authors();
+        $authors = $authors->readAll();
         include 'app/views/articles/create.php';
     }
 

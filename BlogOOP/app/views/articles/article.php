@@ -35,5 +35,6 @@ ob_start(); ?>
     </div>
 <?php endforeach; ?>
 
-<?php $content = ob_get_clean();
+<?php
+$content = ob_get_clean();
 include 'app/views/layout.php';

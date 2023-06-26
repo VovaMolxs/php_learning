@@ -11,12 +11,14 @@ public function __construct() {
 public function readAll() {
     $result = $this->database->query('SELECT * FROM categories');
 
-    $categories = [];
+    $category = [];
     while ($row = $result->fetch_assoc()) {
-        $categories[] = $row;
+        $category[] = $row;
     }
 
-    return $categories;
+    return $category;
 }
+
+
 
 }
