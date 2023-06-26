@@ -24,12 +24,13 @@ ob_start(); ?>
                 </div>
                 <div class='item_name'>
                     <a href='index.php/?page=articles&action=article&id=<?=$article['id']?>'>
-                    <p class="fs-3"><?php echo $article['title'] ?></p>
+                    <p class="fs-4"><?php echo $article['title'] ?></p>
                     </a>
                 </div>
                 <div class='item_desc'>
-                    <p class="fs-3">
+                    <p class="fs-5">
                         <?php echo $article['description'] ?>
+                        <a href='index.php/?page=articles&action=article&id=<?=$article['id']?>'><span>далее...</span></a>
                     </p>
                 </div>
                 <div class='item_img'>

@@ -20,12 +20,13 @@ ob_start(); ?>
                 </div>
             </div>
             <div class='item_name'>
-                    <h1><?php echo $art['title'] ?></h1>
+                    <p class="fs-4"><?php echo $art['title'] ?></p>
             </div>
-            <div class='item_desc'>
-                <h2>
-                    <?php echo $art['description'] ?>
-                </h2>
+
+            <div class='item_content'>
+                <p class="fs-5">
+                    <?php echo $art['content'] ?>
+                </p>
             </div>
             <div class='item_img'>
                 <img class='img' src='app/views/img/<?php echo $art['link_image'] ?>' alt=''>
