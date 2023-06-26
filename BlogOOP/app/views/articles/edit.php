@@ -20,13 +20,15 @@ ob_start(); ?>
     </select><br>
     <label class="form-label" for="">Категория статьи</label>
     <select class="form-select" name="category_id" id="">
-        <option value='1'>1</option>
-        <option value='1'>2</option>
+        <?php foreach ($category as $key): ?>
+            <option value='<?=$key['id']?>'><?=$key['name']?></option>
+        <?php endforeach; ?>
     </select><br>
     <label class="form-label" for="">Имя пользователея</label>
     <select class="form-select" name="author_id" id="">
-        <option value='1'>1 автор</option>
-        <option value='1'>2 автор</option>
+        <?php foreach ($authors as $key): ?>
+            <option value='<?=$key['id']?>'><?php echo $key['first_name'] . " " . $key['last_name']; ?></option>
+        <?php endforeach; ?>
     </select><br>
     <button class="btn btn-success" type="submit">Update</button>
 </form>

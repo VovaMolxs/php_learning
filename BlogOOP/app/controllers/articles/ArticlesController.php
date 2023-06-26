@@ -27,6 +27,10 @@ class ArticlesController
     public function edit() {
         $articleModel = new Articles();
         $article = $articleModel->read($_GET['id']);
+        $category = new Category();
+        $category = $category->readAll();
+        $authors = new Authors();
+        $authors = $authors->readAll();
 
         include 'app/views/articles/edit.php';
     }

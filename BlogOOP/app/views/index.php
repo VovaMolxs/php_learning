@@ -1,4 +1,7 @@
 <?php
+if($_SERVER['REQUEST_URI'] == '/index.php') {
+    header('Location: /');
+}
 $title = "Home";
 
 ob_start();

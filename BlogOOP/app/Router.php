@@ -40,6 +40,7 @@ class Router {
                     }
                 } else {
                     $controller->index();
+                    break;
                 }
 
                 break;
