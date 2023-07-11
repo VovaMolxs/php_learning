@@ -86,6 +86,7 @@ class MySQLiWrapper extends \Core\AbstractCore
         $addQuotes = function ($el){
             return "'$el'";
         };
+
         $func = (function ($val) use(&$strData, $addQuotes){
             $lastElementKey = array_key_last($val);
             $strData .= '(';
@@ -102,8 +103,10 @@ class MySQLiWrapper extends \Core\AbstractCore
             
             return $strData;
         });
+
         $values = array_map($func, $data);
         $query = $query . $values[count($values) - 1];
+        //die(var_dump($query));
         $this->query = mb_substr($query, 0, strlen($query) - 1);
         $msc = $this->startTimer();
         self::query($this->query);

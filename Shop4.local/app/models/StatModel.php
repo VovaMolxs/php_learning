@@ -48,5 +48,8 @@ class StatModel extends Model
             ->toArray();
         return $result[0]['AVG(price)'];
     }
+    public function addProduct($data) {
+        $result = $this->queryBuilder->insertData('products', $data);
+    }
 
 }

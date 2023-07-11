@@ -20,37 +20,54 @@ class StatController extends Controller
         $maxPrice = $this->statModel->maxPrice();
         $minPrice = $this->statModel->minPrice();
         $avgPrice = $this->statModel->averagePrice();
+        $products = $this->statModel->getProducts();
 
         if (!empty($_POST)) {
 
-            switch ($_POST['select']) {
-                case 'ASC':
-                    $products = $this->statModel->orderByMinMax();
-                    $this->display('index.html', [
-                        'products' => $products,
-                        'http' => $http,
-                        'maxPrice' => $maxPrice,
-                        'minPrice' => $minPrice,
-                        'avgPrice' => $avgPrice,
-                    ] );
-                    break;
-                case 'DESC':
-                    $products = $this->statModel->orderByMaxMin();
-                    $this->display('index.html', [
-                        'products' => $products,
-                        'http' => $http,
-                        'maxPrice' => $maxPrice,
-                        'minPrice' => $minPrice,
-                        'avgPrice' => $avgPrice,
-                    ] );
-                    break;
+            if (isset($_POST['name']) && isset($_POST['price'])) {
+                $data = [
+                    ['NULL', $_POST['name'], $_POST['price']]
+                ];
 
+                $products = $this->statModel->addProduct($data);
+
+                $this->display('index.html', [
+                    'products' => $products,
+                    'http' => $http,
+                    'maxPrice' => $maxPrice,
+                    'minPrice' => $minPrice,
+                    'avgPrice' => $avgPrice,
+                ] );
+            }
+            if (isset($_POST['select'])) {
+                switch ($_POST['select']) {
+                    case 'ASC':
+                        $products = $this->statModel->orderByMinMax();
+                        $this->display('index.html', [
+                            'products' => $products,
+                            'http' => $http,
+                            'maxPrice' => $maxPrice,
+                            'minPrice' => $minPrice,
+                            'avgPrice' => $avgPrice,
+                        ] );
+                        break;
+                    case 'DESC':
+                        $products = $this->statModel->orderByMaxMin();
+                        $this->display('index.html', [
+                            'products' => $products,
+                            'http' => $http,
+                            'maxPrice' => $maxPrice,
+                            'minPrice' => $minPrice,
+                            'avgPrice' => $avgPrice,
+                        ] );
+                        break;
+
+                }
             }
 
+
         } else {
-            $products = $this->statModel->getProducts();
-            //die(var_dump($_SERVER));
-            $this->display('index.html', [
+                $this->display('index.html', [
                 'products' => $products,
                 'http' => $http,
                 'maxPrice' => $maxPrice,

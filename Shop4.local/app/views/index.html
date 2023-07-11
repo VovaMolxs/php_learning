@@ -11,6 +11,17 @@
     </select>
     <button type="submit" class="btn btn-primary">SORT</button>
 </form>
+<form action="stat" class="mb-3" method="post">
+    <div class="mb-3">
+        <label for="Name product" class="form-label">Name product</label>
+        <input type="text" class="form-control" id="Name product" name="name" >
+    </div>
+    <div class="mb-3">
+        <label for="Price" class="form-label">Price</label>
+        <input type="text" class="form-control" id="Price" name="price">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
 {% else %}
 <a href="{{http}}/stat">Перейти на страницу с сортировкой</a>
 {% endif %}
