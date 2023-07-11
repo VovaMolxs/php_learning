@@ -15,11 +15,28 @@
 <a href="{{http}}/stat">Перейти на страницу с сортировкой</a>
 {% endif %}
 
+{% if request == stat %}
+<table class="table">
+    <tr>
+        <th>MaxPrice</th>
+        <th>MinPrice</th>
+        <th>AveragePrice</th>
+    </tr>
+    <tr>
+        <td>{{ maxPrice }}</td>
+        <td>{{ minPrice }}</td>
+        <td>{{ avgPrice }}</td>
+    </tr>
+
+</table>
+{% endif %}
+
     <table class="table">
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Price</th>
+
         </tr>
         {%for key,value in products %}
         

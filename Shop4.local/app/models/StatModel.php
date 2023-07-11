@@ -34,13 +34,19 @@ class StatModel extends Model
         $result = $this->queryBuilder->select('products', ['MIN(price)'])
             ->get()
             ->toArray();
-        return $result;
+        return $result[0]['MIN(price)'];
     }
     public function maxPrice() {
         $result = $this->queryBuilder->select('products', ['MAX(price)'])
             ->get()
             ->toArray();
-        return $result;
+        return $result[0]['MAX(price)'];
+    }
+    public function averagePrice() {
+        $result = $this->queryBuilder->select('products', ['AVG(price)'])
+            ->get()
+            ->toArray();
+        return $result[0]['AVG(price)'];
     }
 
 }
