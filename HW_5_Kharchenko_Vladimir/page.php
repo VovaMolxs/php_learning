@@ -11,7 +11,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/data/pagesData.php';
         header("Location: /components/404.php");
         exit;
     } else if ($_GET['id'] == 'home') {
-        header("Location: /index.php");
+        header("Location: /index.html");
         exit;
     }
 

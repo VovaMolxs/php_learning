@@ -136,7 +136,7 @@ function paginationArticles($mysqli, $sort = 0) {
             $html = '';
             while ($count <= $pages) {
                 $html .= "
-        <a href='../articles/index.php?pg=${count}' > ${count} </a>
+        <a href='../articles/index.html?pg=${count}' > ${count} </a>
         ";
                 $count++;
             }
@@ -153,7 +153,7 @@ function paginationArticles($mysqli, $sort = 0) {
             $html = '';
             while ($count <= $pages) {
                 $html .= "
-        <a href='../articles/index.php?pg=${count}&categories_id=${sort}' > ${count} </a>
+        <a href='../articles/index.html?pg=${count}&categories_id=${sort}' > ${count} </a>
         ";
                 $count++;
             }

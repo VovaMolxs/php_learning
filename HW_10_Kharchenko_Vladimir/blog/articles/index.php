@@ -97,7 +97,7 @@ if ($result->num_rows) {
                 </div>
             </div>
             <div class='item_name'>
-                <a href='article.php?id=${row['id']}'>
+                <a href='article.html?id=${row['id']}'>
                     <h1>${row['title']}</h1>
                 </a>
             </div>

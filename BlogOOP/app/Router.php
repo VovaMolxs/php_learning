@@ -1,5 +1,6 @@
 <?php
 
+
 class Router {
     public function run() {
         if (isset($_GET['page'])) {

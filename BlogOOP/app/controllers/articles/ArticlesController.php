@@ -1,5 +1,7 @@
 <?php
-require_once 'app/models/Articles.php';
+namespace App\Controllers\Articles;
+
+use App\Models\Articles;
 
 class ArticlesController
 {
@@ -7,7 +9,7 @@ class ArticlesController
         $articlesModel = new Articles();
         $articles = $articlesModel->readAll();
 
-        include 'app/views/articles/index.php';
+        include 'app/views/articles/index.html';
     }
 
     public function create() {
@@ -15,13 +17,13 @@ class ArticlesController
         $category = $category->readAll();
         $authors = new Authors();
         $authors = $authors->readAll();
-        include 'app/views/articles/create.php';
+        include 'app/views/articles/create.html';
     }
 
     public function delete() {
         $articles = new Articles();
         $articles->delete($_GET['id']);
-        header("Location: index.php?page=articles");
+        header("Location: index.html?page=articles");
     }
 
     public function edit() {
@@ -32,13 +34,13 @@ class ArticlesController
         $authors = new Authors();
         $authors = $authors->readAll();
 
-        include 'app/views/articles/edit.php';
+        include 'app/views/articles/edit.html';
     }
 
     public function update() {
         $articalModel = new Articles();
         $articalModel->update($_GET['id'], $_POST);
-        header('Location: index.php?page=articles');
+        header('Location: index.html?page=articles');
     }
 
     public function store() {
@@ -55,14 +57,15 @@ class ArticlesController
             $articlesModel->create($_POST);
         }
 
-        header("Location: index.php?page=articles");
+        header("Location: index.html?page=articles");
     }
 
-    public function article() {
-        $articlesModel = new Articles();
-        $article = $articlesModel->read($_GET['id']);
+    public function article($param = null) {
 
-        include 'app/views/articles/article.php';
+        $articlesModel = new Articles();
+        $article = $articlesModel->read($param);
+
+        include 'app/views/articles/article.html';
     }
 }
 

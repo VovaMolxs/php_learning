@@ -1,4 +1,7 @@
 <?php
+namespace App\Models;
+
+use Core\db\Database;
 
 class Articles
 {

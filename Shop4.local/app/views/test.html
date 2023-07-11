@@ -1,0 +1,23 @@
+{% extends "app.html" %}
+
+{% block body %}
+
+    <h1>Test Controller2</h1>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        {%for key,value in products %}
+        
+        <tr>
+        {%for k,v in value %}
+        
+        <td>{{ v }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    
+{% endblock %}

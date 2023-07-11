@@ -1,0 +1,23 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L]
+
+Options All -Indexes
+<Files "composer.json">
+Order allow,deny
+Deny from all
+</Files>
+<Files "bnb.sql">
+Order allow,deny
+Deny from all
+</Files>
+<Files "composer.lock">
+Order allow,deny
+Deny from all
+</Files>
+
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>

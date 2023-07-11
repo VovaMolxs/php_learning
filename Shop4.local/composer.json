@@ -1,0 +1,17 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "app/controllers",
+            "App\\Models\\": "app/models",
+            "Core\\": "core",
+            "Core\\DB\\": "core/db",
+            "Core\\router\\": "core/router",
+            "Core\\Exceptions\\": "core/exceptions",
+            "Core\\Template\\": "core/template"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.0",
+        "rdlowrey/auryn": "^1.4"
+    }
+}

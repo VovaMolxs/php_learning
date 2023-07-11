@@ -1,9 +1,19 @@
 <?php
+namespace App\Controllers;
 
-class HomeController
+class HomeController extends Controller
 {
 public function index() {
-    include 'app/views/index.php';
+
+    $test = [
+        'home' => 'index.php',
+        'about' => 'about.php',
+    ];
+
+    $this->display('index.html', [
+        'title' => 'главная страница',
+        'test' => $test
+    ]);
 }
 
 }

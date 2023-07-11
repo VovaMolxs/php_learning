@@ -1,0 +1,35 @@
+{% extends "app.html" %}
+
+{% block body %}
+
+    <h1>Hello World</h1>
+{% if request == stat %}
+<form action="stat" class="mb-3" method="post">
+    <select class="form-select" aria-label="" name="select">
+        <option value="ASC">Отсортировать по возрастанию цены</option>
+        <option value="DESC">Отсортировать по убыванию цены</option>
+    </select>
+    <button type="submit" class="btn btn-primary">SORT</button>
+</form>
+{% else %}
+<a href="{{http}}/stat">Перейти на страницу с сортировкой</a>
+{% endif %}
+
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        {%for key,value in products %}
+        
+        <tr>
+        {%for k,v in value %}
+        
+        <td>{{ v }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    
+{% endblock %}
